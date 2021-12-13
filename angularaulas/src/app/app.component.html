@@ -1,3 +1,12 @@
+<h2>Desafio final</h2>
+<h3>Lista de tarefas</h3>
+<input type="text" #tarefaInput (keyup.enter)="addTarefaNaLista(tarefaInput.value); tarefaInput.value = ''" />
+<button (click)="addTarefaNaLista(tarefaInput.value); tarefaInput.value = ''">Adicionar</button>
+
+<ul>
+  <li *ngFor = "let tarefa of listaTarefas"> {{ tarefa.title }}</li>
+</ul>
+
 <hr>
 <h3>Templates e Variáveis</h3>
 
@@ -93,11 +102,7 @@ Meu nome é {{ nome }} e e tenho {{ idade }} anos
 <p [style.color]="corPrincipal">Texto de exemplo</p>
 
 <ul>
-  <li 
-    *ngFor="let item of nomeIdadePorClasse"
-    (click)="clicou(item)"
-    [style.color]="corPrincipal"
-  >
+  <li *ngFor="let item of nomeIdadePorClasse" (click)="clicou(item)" [style.color]="corPrincipal">
     Nome; {{ item.nome }} - Idade: {{ item.idade }} anos - {{ item.getTipo() }}
   </li>
 </ul>
@@ -105,3 +110,16 @@ Meu nome é {{ nome }} e e tenho {{ idade }} anos
 <button (click)="title='Testando 1,2,3'">Alterar o título</button>
 
 <hr>
+<h3>Eventos de Teclado</h3>
+
+Nome: {{ nomePrimeiro }} <br>
+<!-- <input type="text" [value]="nomePrimeiro" (input)="nomePrimeiro = $any($event.target).value" /> -->
+<!-- <input type="text" [value]="nomePrimeiro" (keyup)="trocarNomePrimeiro($any($event.target).value)" /> -->
+<input type="text" [value]="nomePrimeiro" (keyup.enter)="trocarNomePrimeiro($any($event.target).value)" />
+
+<hr>
+<h3>Variável Auxiliar</h3>
+
+Nome: {{ nomePrimeiro }} <br>
+<input type="text" #nomeInput (keyup)="0" (keyup.enter)="trocarNomePrimeiro(nomeInput.value); nomeInput.value = ''" />
+<p>Variável: {{ nomeInput.value }}</p>

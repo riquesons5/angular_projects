@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pessoa } from './pessoa';
+import { Tarefa } from './tarefa';
 
 @Component({
   selector: 'app-root',
@@ -51,4 +52,17 @@ export class AppComponent {
   clicou(pessoa: Pessoa) {
     alert(`Clicou em: ${pessoa.nome}`);
   }
-}
+
+  nomePrimeiro = 'Henrique';
+  trocarNomePrimeiro(novoNome: string) {
+    this.nomePrimeiro = novoNome;
+  }
+
+  listaTarefas = [
+    new Tarefa('Terminar o curso'),
+    new Tarefa('Retirar certificado'),
+  ];
+
+  addTarefaNaLista(title:string){
+    this.listaTarefas.push(new Tarefa(title));
+  }}
