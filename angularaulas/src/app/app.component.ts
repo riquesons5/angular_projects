@@ -10,7 +10,7 @@ export class AppComponent {
   nome = "Henrique";
   idade = 26
 
-  nomes = ['Henrique', 'Vanessa', 'Rosemeri', 'Karina'];
+  nomes = ['Henrique', 'Vanessa', 'Rosemeri', 'Karina', 'Pedro'];
   nomePrincipal = this.nomes[0];
 
   nomeIdade = [
@@ -28,4 +28,27 @@ export class AppComponent {
     new Pessoa(5, 'Raquelson', 38),
     new Pessoa(6, 'João', 14),
   ];
+
+  showAviso = true;
+  avisoMsg = 'Este é um aviso';
+
+  hideInput = true;
+
+  imagem = 'https://www.google.com.br/google.jpg';
+
+  tamanhoFonte = '20px';
+
+  corPrincipal = '#FF0000';
+
+  trocarCor() {
+    this.corPrincipal = '#00FF00';
+  }
+
+  trocarCorComParametro(cor: string) {
+    this.corPrincipal = cor;
+  }
+
+  clicou(pessoa: Pessoa) {
+    alert(`Clicou em: ${pessoa.nome}`);
+  }
 }

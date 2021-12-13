@@ -1,3 +1,4 @@
+<hr>
 <h3>Templates e Variáveis</h3>
 
 <h4>{{ title }}</h4>
@@ -26,7 +27,7 @@ Meu nome é {{ nome }} e e tenho {{ idade }} anos
 </ul>
 
 <ul>
-  <li *ngFor="let item of nomeIdade">
+  <li *ngFor="let item of nomeIdade" style="color: brown;">
     Nome; {{ item.nome }} - Idade: {{ item.idade }}
   </li>
 </ul>
@@ -39,3 +40,68 @@ Meu nome é {{ nome }} e e tenho {{ idade }} anos
     Nome; {{ item.nome }} - Idade: {{ item.idade }} anos - {{ item.getTipo() }}
   </li>
 </ul>
+
+<hr>
+<h3>Condicionais</h3>
+
+<p *ngIf="nomes.length > 2">Tem muitos nomes cadastrados!</p>
+
+<div *ngIf="nomes.length <= 4">
+  <input type="text">
+  <button>Adicionar</button>
+</div>
+
+<div *ngIf="showAviso" style="color: green;">{{ avisoMsg }}</div>
+
+<hr>
+<h3>Bind de Propriedades</h3>
+
+<input type="text" value="{{ nomePrincipal }}">
+<input type="text" [value]="nomePrincipal"> <!-- aceita expressões JS -->
+<input type="text" bind-value="nomePrincipal">
+<input type="text" [disabled]="hideInput">
+<br>
+<img src="{{ imagem }}"><br>
+<img [src]="imagem"><br>
+<img bind-src="imagem">
+
+<hr>
+<h3>Styles e Class</h3>
+
+<div [style]="{width: '100px', height: '100px', fontSize: tamanhoFonte, backgroundColor: '#0000FF'}">
+  <!--[style.width.px]="100"-->
+  Texto qualquer
+</div>
+
+<div [class]="{menu: true, ativo: false}">
+  Texto qualquer 2
+</div>
+
+<div [class]="{menu: true, ativo: true}">
+  Texto qualquer 3
+</div>
+
+<div [class.teste]="true">Texto</div>
+
+<hr>
+<h3>Eventos de Clique</h3>
+
+<button (click)="trocarCor()">Aperte aqui</button>
+
+<button (click)="trocarCorComParametro('#0000FF')">Aperte aqui para colocar cor azul</button>
+<button (click)="trocarCorComParametro('#FF0000')">Aperte aqui para colocar cor vermelha</button>
+<p [style.color]="corPrincipal">Texto de exemplo</p>
+
+<ul>
+  <li 
+    *ngFor="let item of nomeIdadePorClasse"
+    (click)="clicou(item)"
+    [style.color]="corPrincipal"
+  >
+    Nome; {{ item.nome }} - Idade: {{ item.idade }} anos - {{ item.getTipo() }}
+  </li>
+</ul>
+
+<button (click)="title='Testando 1,2,3'">Alterar o título</button>
+
+<hr>
