@@ -11,4 +11,11 @@ export class AppComponent {
 
   nomes = ['Henrique', 'Vanessa', 'Rosemeri', 'Karina'];
   nomePrincipal = this.nomes[0];
+
+  nomeIdade = [
+    { nome: 'Henrique', idade: 26 },
+    { nome: 'Vanessa', idade: 21 },
+    { nome: 'Karina', idade: 21 },
+    { nome: 'Rosemeri', idade: 52 }
+  ]
 }

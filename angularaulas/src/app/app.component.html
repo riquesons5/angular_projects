@@ -1,16 +1,32 @@
-<h1>{{ title }}</h1>
-<h4>Sub legenda legal</h4>
+<h3>Templates e Variáveis</h3>
+
+<h4>{{ title }}</h4>
 
 <!-- interpretado como javaScript -->
 {{ 2 + 3 }}
-<br><br>
+<br>
 
 Meu nome é {{ nome }} e e tenho {{ idade }} anos
-<br><br>
+<br>
 
 <input type="text" value="{{nome}}">
 
-<br><br>
+<br>
 
 <p>Total de nomes: {{ nomes.length }}</p>
 <p>Nome principal: {{ nomePrincipal }}</p>
+
+<hr>
+<h3>Loop</h3>
+
+<ul>
+  <li *ngFor="let nome of nomes">
+    {{ nome }}
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let item of nomeIdade">
+    Nome; {{ item.nome }} - Idade: {{ item.idade }}
+  </li>
+</ul>
