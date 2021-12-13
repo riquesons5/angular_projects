@@ -30,3 +30,12 @@ Meu nome é {{ nome }} e e tenho {{ idade }} anos
     Nome; {{ item.nome }} - Idade: {{ item.idade }}
   </li>
 </ul>
+
+<hr>
+<h3>Criando uma classe</h3>
+
+<ul>
+  <li *ngFor="let item of nomeIdadePorClasse">
+    Nome; {{ item.nome }} - Idade: {{ item.idade }} anos - {{ item.getTipo() }}
+  </li>
+</ul>
