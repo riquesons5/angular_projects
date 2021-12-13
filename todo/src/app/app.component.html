@@ -1,5 +1,9 @@
 <h1>{{ title }}</h1>
-<button (click)="alterarTexto()">Alterar</button>
 <ul>
-    <li *ngFor="let todo of todos">{{ todo }} - <button>Remover</button></li>
+    <!-- lembrar de usar o ngIf em paineis no caso div, para poder poupar processamento do front-end -->
+    <li *ngFor="let todo of todos">{{ todo.id }}. {{ todo.title }} | 
+        <button *ngIf="!todo.done">CONCLUIR</button> | 
+        <button *ngIf="todo.done">REFAZER</button> | 
+        <button>REMOVER</button>
+    </li>
 </ul>
